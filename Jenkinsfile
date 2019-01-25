@@ -36,7 +36,7 @@ podTemplate(
                   credentialsId: 'docker_hub',
                   usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'
               ]]) {
-                  sh "docker login -u $USERNAME -p $PASSWORD"
+                  sh "docker login -u docker_hub -p docker_hub"
                   sh "docker push ${repository}:${commitId}"
               }
             }
