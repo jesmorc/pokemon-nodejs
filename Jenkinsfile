@@ -26,7 +26,7 @@ podTemplate(
         stage ('Build') {
             container ('docker') {
                 repository = "jesmorc/pokemon-nodejs"
-                sh "docker build -t ${repository}:${commitId} ."
+                sh "docker build -t jgarciagodoy/pepe:${commitId} ."
             }
         }
         stage("push") {
@@ -37,7 +37,7 @@ podTemplate(
                   usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'
               ]]) {
                   sh "docker login -u $USERNAME -p $PASSWORD"
-                  sh "docker push jgarciagodoy/${repository}:${commitId}"
+                  sh "docker push jgarciagodoy/pepe:${commitId}"
               }
             }
         }
